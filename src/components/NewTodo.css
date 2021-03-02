@@ -29,11 +29,19 @@ input:focus {
 }
 
 button {
-  background: #50005a;
-  border: 1px solid #50005a;
-  color: white;
+  color: royalblue;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
+}
+
+.btn-complete {
+  background: #6ff76f;
+  border: 1px solid #6ff76f;
+}
+
+.btn-delete {
+  background: #50005a;
+  border: 1px solid #50005a;
 }
 
 button:focus {
