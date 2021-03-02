@@ -4,10 +4,6 @@ import TodoList from "./components/TodoList";
 import NewTodo from "./components/NewTodo";
 import { Todo } from "./todo.model";
 
-// function App() {
-//   return <div className="App"></div>;
-// }
-
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
@@ -18,14 +14,23 @@ const App: React.FC = () => {
     ]);
   };
 
+
   const todoDeleteHandler = (todoId: string) => {
     setTodos((prevTodo) => prevTodo.filter((todo) => todo.id !== todoId));
   };
 
   return (
     <div className="App">
-      <NewTodo onAddHandler={todoAddHandler} />
-      <TodoList items={todos} onDeleteTodo={todoDeleteHandler} />
+      <NewTodo onAddHandler={todoAddHandler} items={todos} />
+      {todos.length >= 5 && (
+        <p style={{ color: "red" ,textAlign: 'center'}}>
+          登録できるTodoは2個まです。消化してください
+        </p>
+      )}
+      <TodoList
+        items={todos}
+        onDeleteTodo={todoDeleteHandler}
+      />
     </div>
   );
 };

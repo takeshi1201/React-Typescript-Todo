@@ -12,12 +12,12 @@ const TodoList: React.FC<TodoListProps> = (props) => {
   return (
     <ul>
       {
-        items.map((todo) => (
+      items.map((todo) => (
           <li key={todo.id}>
             <span>{todo.text}</span>
             <button onClick={onDeleteTodo.bind(null, todo.id)}>削除</button>
           </li>
-        ))
+          ))
       }
     </ul>
   );
