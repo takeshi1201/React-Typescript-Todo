@@ -4,24 +4,24 @@ import "./TodoList.css";
 
 interface TodoCompleted {
   items: { id: string; text: string }[];
+  onBackTodo: (id: string, text: string) => void;
 }
 
-const CompleteTodo: React.FC<TodoCompleted> = props => {
-  const { items } = props;
-  console.log(items);
+const CompleteTodo: React.FC<TodoCompleted> = (props) => {
+  const { items, onBackTodo } = props;
 
   return (
     <div className="complate">
       <p className="complate-head">完了Todo</p>
       <ul>
-        {
-        items.map((todo) => (
-            <li key={todo.id}>
-              <span>{todo.text}</span>
-              {/* <button onClick={onDeleteTodo.bind(null, todo.id)}>削除</button> */}
-            </li>
-            ))
-        }
+        {items.map((todo) => (
+          <li key={todo.id}>
+            <span>{todo.text}</span>
+            <button onClick={onBackTodo.bind(null, todo.id, todo.text)}>
+              戻す
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );

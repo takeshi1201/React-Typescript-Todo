@@ -7,7 +7,7 @@ import CompleteTodo from "./components/CompleteTodo";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [completeTodo, setCompleteTodo] = useState<Todo[]>([])
+  const [completeTodo, setCompleteTodo] = useState<Todo[]>([]);
 
   const todoAddHandler = (text: string) => {
     setTodos((prevTodo) => [
@@ -15,15 +15,27 @@ const App: React.FC = () => {
       { id: Math.random().toString(), text: text },
     ]);
   };
-  const todoCompletedHandler = (todoId: string) => {
+
+  const todoCompletedHandler = (todoId: string, text: string) => {
     setTodos((prevTodo) => prevTodo.filter((todo) => todo.id !== todoId));
 
-    const newCompleteTodo = todos
-    setCompleteTodo(newCompleteTodo);
+    setCompleteTodo((prevTodo) => [
+      ...prevTodo,
+      { id: Math.random().toString(), text: text },
+    ]);
   };
 
   const todoDeleteHandler = (todoId: string) => {
     setTodos((prevTodo) => prevTodo.filter((todo) => todo.id !== todoId));
+  };
+
+  const todoBackHandler = (todoId: string, text: string) => {
+    setCompleteTodo(prevTodo => prevTodo.filter((todo) => todo.id !== todoId));
+
+    setTodos(prevTodo => [
+      ...prevTodo,
+      {id: Math.random().toString(), text: text},
+    ])
   };
 
   return (
@@ -39,9 +51,7 @@ const App: React.FC = () => {
         onDeleteTodo={todoDeleteHandler}
         onCompleteTodo={todoCompletedHandler}
       />
-      <CompleteTodo 
-        items={completeTodo} 
-        />
+      <CompleteTodo items={completeTodo} onBackTodo={todoBackHandler} />
     </div>
   );
 };

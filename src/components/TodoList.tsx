@@ -5,7 +5,7 @@ import "./TodoList.css";
 interface TodoListProps {
   items: { id: string; text: string }[];
   onDeleteTodo: (id: string) => void;
-  onCompleteTodo: (id: string) => void;
+  onCompleteTodo: (id: string, text: string) => void;
 }
 
 const TodoList: React.FC<TodoListProps> = (props) => {
@@ -17,7 +17,7 @@ const TodoList: React.FC<TodoListProps> = (props) => {
         {items.map((todo) => (
           <li key={todo.id}>
             <span>{todo.text}</span>
-            <button className="btn-complete" onClick={onCompleteTodo.bind(null, todo.id)}>完了</button>
+            <button className="btn-complete" onClick={onCompleteTodo.bind(null, todo.id, todo.text)}>完了</button>
             <button className="btn-delete" onClick={onDeleteTodo.bind(null, todo.id)}>削除</button>
           </li>
         ))}
