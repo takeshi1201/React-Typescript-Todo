@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
 
-import './NewTodo.css';
+import "../styles/style.scss";
 
 interface NewTodoProps  {
   onAddHandler: (todoText: string) => void;
@@ -30,7 +30,7 @@ const NewTodo:React.FC<NewTodoProps> = props => {
       <label htmlFor="todo-text">Todo内容</label>
       <input type="text" name="" id="todo-text" ref={textInputRef} disabled={Limit}/>
     </div>
-    <button type="submit" disabled={Limit} >TODO追加</button>
+    <button className="todoAdd" type="submit" disabled={Limit} >TODO追加</button>
   </form>
 }
 

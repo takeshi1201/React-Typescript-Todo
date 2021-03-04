@@ -1,3 +1,18 @@
+.util-ul {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  background-color: rgb(179, 179, 179);
+  height: auto;
+}
+.util-head {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px 0;
+}
+
 ul {
   list-style: none;
   width: 90%;
@@ -18,35 +33,19 @@ li {
 }
 
 .newTodo {
-  width: 90%;
-  max-width: 40rem;
-  margin: 2rem auto;
-  padding: 1rem 0;
-  background-color: rgb(179, 179, 179);
-  height: auto;
+  @extend .util-ul;
 }
 
 .newTodo-head {
-  font-size: 25px;
-  font-weight: 600;
+  @extend .util-head;
   color: rgb(245, 208, 162);
-  text-align: center;
-  padding: 15px 0;
 }
 
 .complate {
-  width: 90%;
-  max-width: 40rem;
-  margin: 2rem auto;
-  padding: 1rem 0;
-  background-color: rgb(179, 179, 179);
-  height: auto;
+  @extend .util-ul;
 }
 
 .complate-head {
-  font-size: 25px;
-  font-weight: 600;
+  @extend .util-head;
   color: rgb(162, 245, 203);
-  text-align: center;
-  padding: 15px 0;
 }

@@ -46,12 +46,14 @@ const App: React.FC = () => {
           登録できるTodoは2個まです。消化してください
         </p>
       )}
-      <TodoList
-        items={todos}
-        onDeleteTodo={todoDeleteHandler}
-        onCompleteTodo={todoCompletedHandler}
-      />
-      <CompleteTodo items={completeTodo} onBackTodo={todoBackHandler} />
+      <div className="todo-wrap">
+        <TodoList
+          items={todos}
+          onDeleteTodo={todoDeleteHandler}
+          onCompleteTodo={todoCompletedHandler}
+        />
+        <CompleteTodo items={completeTodo} onBackTodo={todoBackHandler} />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./TodoList.css";
+import "../styles/style.scss";
 
 interface TodoCompleted {
   items: { id: string; text: string }[];
@@ -17,7 +17,7 @@ const CompleteTodo: React.FC<TodoCompleted> = (props) => {
         {items.map((todo) => (
           <li key={todo.id}>
             <span>{todo.text}</span>
-            <button onClick={onBackTodo.bind(null, todo.id, todo.text)}>
+            <button className="todoBack" onClick={onBackTodo.bind(null, todo.id, todo.text)}>
               戻す
             </button>
           </li>
